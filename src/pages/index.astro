@@ -1,11 +1,25 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import Profile from '../components/Profile.astro';
 import Layout from '../layouts/Layout.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+
+const API_BASE_URL = import.meta.env.API_BASE_URL;
+
+const profileResponse = await Promise.resolve(
+	fetch(`${API_BASE_URL}/profile`, {
+		method: 'GET',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+	})
+);
+const profileData = await profileResponse.json();
 ---
 
 <Layout>
-	<Welcome />
+	<Profile data={profileData.data} />
 </Layout>
+
+
