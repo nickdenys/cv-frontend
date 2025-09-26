@@ -1,25 +1,26 @@
 ---
 import Profile from '../components/Profile.astro';
+import Projects from '../components/Projects.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 
 const API_BASE_URL = import.meta.env.API_BASE_URL;
 
-const profileResponse = await Promise.resolve(
-	fetch(`${API_BASE_URL}/profile`, {
-		method: 'GET',
-		headers: {
-			'Content-Type': 'application/json',
-		},
-	})
-);
-const profileData = await profileResponse.json();
+const FETCH_OPTIONS = {
+	method: 'GET',
+	headers: {
+		'Content-Type': 'application/json'
+	},
+};
+
+const [profileData, projectsData] = await Promise.all([
+	fetch(`${API_BASE_URL}/profile`, FETCH_OPTIONS).then(res => res.ok ? res.json() : Promise.reject(res)),
+	fetch(`${API_BASE_URL}/projects`, FETCH_OPTIONS).then(res => res.ok ? res.json() : Promise.reject(res))
+]);
 ---
 
 <Layout>
 	<Profile data={profileData.data} />
+	<Projects data={projectsData.data} />
 </Layout>
 
 

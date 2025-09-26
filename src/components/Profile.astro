@@ -1,12 +1,17 @@
 ---
 const { data } = Astro.props;
 
+type Link = {
+	title: string;
+	url: string;
+	handle: string;
+};
 ---
 <section>
 	<h1>{data.title}</h1>
 	<div>{data.bio}</div>
 	<ul>
-		{data.links.map((link: { title: string, url: string, handle: string }) => (
+		{data.links.map((link: Link) => (
 			<li>
 				<a href={link.url} data-site={link.handle} target="_blank">{link.title}</a>
 			</li>
