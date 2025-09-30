@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+@import "./base/fonts.css";
+@import "./base/colors.css";
+@import "./base/typography.css";

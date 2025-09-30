@@ -1,0 +1,29 @@
+@font-face {
+  font-family: "DM Serif Display";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../../assets/fonts/DMSerifDisplay-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Manrope Medium";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../../assets/fonts/Manrope-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Manrope Bold";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../../assets/fonts/Manrope-Bold.woff2") format("woff2");
+}
+
+@theme {
+	--font-display: "DM Serif Display", serif;
+	--font-body: "Manrope Medium", sans-serif;
+  --font-body-bold: "Manrope Bold", "Manrope Medium", sans-serif;
+}

@@ -1,5 +1,7 @@
 ---
-const { data } = Astro.props;
+import Project from "./Project.astro";
+
+const { className, data } = Astro.props;
 
 type Project = {
 	id: number;
@@ -9,13 +11,12 @@ type Project = {
 	url: string;
 };
 ---
-<section>
-	{data.map((project: Project) => (
-		<article>
-			<h2>{project.title}</h2>
-			<p>{project.description}</p>
-			{project.image_url && <img src={project.image_url} alt={project.title} />}
-			<a href={`${project.url}`}>View Project</a>
-		</article>
-	))}
+<section class={`space-y-6 ${className}`}>
+	<h2 class="text-xl">A curated selection of projects</h2>
+
+	<div class="space-y-6 flex flex-col items-start">
+		{data.map((project: Project) => (
+			<Project project={project} />
+		))}
+	</div>
 </section>
