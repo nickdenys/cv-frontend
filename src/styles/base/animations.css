@@ -1,0 +1,58 @@
+@theme {
+	--animate-fly: fly-out-in 0.6s ease-in-out forwards;
+	--animate-fade-up: fade-up 0.6s ease-out forwards;
+	--animate-fade-in: fade-in 0.6s ease-out forwards;
+	--animate-expand-right: expand-right 0.6s ease-out forwards;
+
+	@keyframes fly-out-in {
+		0% {
+			transform: translate(0, 0);
+			opacity: 1;
+		}
+		49% {
+			transform: translate(50%, -50%);
+			opacity: 0;
+		}
+		50% {
+			transform: translate(-50%, 50%);
+			opacity: 0;
+		}
+		100% {
+			transform: translate(0, 0);
+			opacity: 1;
+		}
+	}
+
+	@keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+	@keyframes fade-up {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+	@keyframes expand-right {
+		0% {
+			--tw-scale-x: 1;
+			transform: scaleX(0);
+			transform-origin: left;
+		}
+		100% {
+			--tw-scale-x: 1;
+			transform: scaleX(1);
+			transform-origin: left;
+		}
+	}
+}

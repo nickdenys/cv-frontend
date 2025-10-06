@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from 'astro:transitions';
 import "../styles/main.css";
 ---
 <!doctype html>
@@ -7,10 +8,11 @@ import "../styles/main.css";
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>Nick Denys - Full Stack Developer</title>
+		<title>Nick Denys • Full Stack Developer</title>
+		<ClientRouter />
 	</head>
 	<body class="m-0 w-full h-full antialiased bg-charcoal text-ivory font-body">
-		<main class="p-8 max-w-4xl mx-auto min-h-dvh md:justify-center flex flex-col">
+		<main class="p-8 pt-28 md:pt-8 max-w-4xl mx-auto min-h-dvh md:justify-center flex flex-col">
 			<slot name="main" />
 		</main>
 	</body>

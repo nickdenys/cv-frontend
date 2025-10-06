@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+
 const { className, data } = Astro.props;
 
 type Link = {
@@ -7,24 +8,35 @@ type Link = {
 	url: string;
 	handle: string;
 };
+
+const splitTitle = data.title.split(" ");
+
 ---
 
-<section class={`space-y-4 ${className}`}>
-	<h1 class="font-display text-[5rem] md:text-[7rem] leading-[0.85] max-w-[5ch] mb-8">
-		{data.title}
+<section class={`space-y-8 ${className}`} transition:animate="fade">
+	<h1 class="font-display text-[5rem] md:text-[7rem] leading-[0.85] max-w-[5ch]">
+		{splitTitle.map((part: string, index: number) => (
+			<span class={`inline-block opacity-0 animate-fade-up`} style={`animation-delay: calc(${index + 1} * 0.15s)`} data-index={index}>
+				{part}
+			</span>
+		))}
 	</h1>
 
-	<hr class="border-t border-neutral-700 w-15 mb-8" />
+	<hr class="border-t border-neutral-700 w-15 scale-x-0 animate-expand-right" style="animation-delay: 0.75s" />
 
-	<div set:html={data.bio} />
+	<div set:html={data.bio} class="opacity-0 animate-fade-up" style="animation-delay: 0.85s" />
 
-	<ul>
+	<hr class="border-t border-neutral-700 w-15 scale-x-0 animate-expand-right" style="animation-delay: 1.3s" />
+
+	<ul class="opacity-0 animate-fade-up" style="animation-delay: 1.3s">
 		{data.links.map((link: Link) => (
 			<li>
-				<a href={link.url} data-site={link.handle} target="_blank" class="flex items-center gap-1">
+				<a href={link.url} data-site={link.handle} target="_blank" class="relative flex items-center gap-1 group hover:text-white" rel="noopener noreferrer">
 					{link.title}
 
-					<Icon name="external-link" />
+					<span class="inline-block group-hover:animate-fly">
+						<Icon name="material-symbols:arrow-outward" />
+					</span>
 				</a>
 			</li>
 		))}

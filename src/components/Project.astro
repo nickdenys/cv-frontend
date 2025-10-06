@@ -1,9 +1,9 @@
 ---
 import { Image } from 'astro:assets';
-const { project } = Astro.props;
+const { className, style, project } = Astro.props;
 ---
 
-<a href={`${project.url}`} class="flex flex-row gap-5 items-center group hover:translate-x-1 transition-transform duration-300 ease-in-out">
+<a href={`${project.url}`} class={`flex flex-row gap-5 items-center group hover:translate-x-1 transition-transform duration-300 ease-in-out ${className}`} style={style}>
 	<div class="aspect-square w-15 h-15 overflow-hidden rounded-md">
 		{project.image_url && <Image src={project.image_url} alt={project.title} width={60} height={60} loading="eager" class="block h-full w-full object-cover" />}
 	</div>
