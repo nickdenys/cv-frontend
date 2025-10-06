@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon/components";
 const { className, data } = Astro.props;
 
 type Link = {
@@ -20,7 +21,11 @@ type Link = {
 	<ul>
 		{data.links.map((link: Link) => (
 			<li>
-				<a href={link.url} data-site={link.handle} target="_blank">{link.title}</a>
+				<a href={link.url} data-site={link.handle} target="_blank" class="flex items-center gap-1">
+					{link.title}
+
+					<Icon name="external-link" />
+				</a>
 			</li>
 		))}
 	</ul>
