@@ -31,7 +31,7 @@ const splitTitle = data.title.split(" ");
 	<ul class="opacity-0 animate-fade-up" style="animation-delay: 1.3s">
 		{data.links.map((link: Link) => (
 			<li>
-				<a href={link.url} data-site={link.handle} target="_blank" class="relative flex items-center gap-1 group hover:text-white" rel="noopener noreferrer">
+				<a href={link.url} data-site={link.handle} target="_blank" class="relative inline-flex items-center gap-1 group hover:text-white" rel="noopener noreferrer">
 					{link.title}
 
 					<span class="inline-block group-hover:animate-fly">
