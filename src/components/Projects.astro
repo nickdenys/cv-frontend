@@ -14,11 +14,11 @@ type Project = {
 };
 ---
 <section class={`space-y-6 md:pt-20 ${className}`}>
-	<h2 class="text-xl opacity-0 animate-fade-in" style="animation-delay: 2s">Some fun projects I got to work on:</h2>
+	<h2 class="text-xl motion-safe:opacity-0 motion-safe:animate-fade-in" style="animation-delay: 2s">Some fun projects I got to work on:</h2>
 
 	<div class="grid gap-6">
 		{data.map((project: Project, index: number) => (
-			<Project project={project} className={`opacity-0 animate-fade-up`} style={`animation-delay: ${initialAnimationDelay + index * 0.1}s`} />
+			<Project project={project} className={`motion-safe:opacity-0 motion-safe:animate-fade-up`} style={`animation-delay: ${initialAnimationDelay + index * 0.1}s`} />
 		))}
 	</div>
 </section>

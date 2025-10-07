@@ -13,10 +13,10 @@ const { className, style, project } = Astro.props;
 		<h3 class="text-xl font-body-bold font-bold group-hover:text-white flex items-center">
 			{project.title}
 
-			<span class="inline-block opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out ml-1">
+			<span class="inline-block opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out ml-2">
 					<Icon name="material-symbols:arrow-outward" />
 				</span>
 		</h3>
-		<p class="text-sm">{project.description}</p>
+		<p class="text-sm text-pretty">{project.description}</p>
 	</div>
 </a>
