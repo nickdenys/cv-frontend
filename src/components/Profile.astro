@@ -1,7 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 
-const { className, data } = Astro.props;
+const { data } = Astro.props;
 
 type Link = {
 	title: string;
@@ -13,7 +13,7 @@ const splitTitle = data.title.split(" ");
 
 ---
 
-<section class={`space-y-8 ${className}`} transition:animate="fade">
+<section class="space-y-8" transition:animate="fade">
 	<h1 class="font-display text-[5rem] md:text-[7rem] leading-[0.85] max-w-[5ch]">
 		{splitTitle.map((part: string, index: number) => (
 			<span class={`inline-block opacity-0 animate-fade-up`} style={`animation-delay: calc(${index + 1} * 0.15s)`} data-index={index}>

@@ -14,9 +14,9 @@ type Project = {
 };
 ---
 <section class={`space-y-6 md:pt-20 ${className}`}>
-	<h2 class="text-xl opacity-0 animate-fade-in" style="animation-delay: 2s">A curated selection of projects</h2>
+	<h2 class="text-xl opacity-0 animate-fade-in" style="animation-delay: 2s">Some fun projects I got to work on:</h2>
 
-	<div class="space-y-6 flex flex-col items-start">
+	<div class="grid gap-6">
 		{data.map((project: Project, index: number) => (
 			<Project project={project} className={`opacity-0 animate-fade-up`} style={`animation-delay: ${initialAnimationDelay + index * 0.1}s`} />
 		))}
