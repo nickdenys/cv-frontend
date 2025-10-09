@@ -12,7 +12,7 @@ if (data === undefined) {
 		{data.year_start}{data.year_end && data.year_end !== data.year_start ? ` — ${data.year_end}` : ""}
 	</div>
 
-	<div class="text-pretty">
+	<div class="text-pretty max-w-[40ch]">
 		<span set:html={data.role} /> at {data.website ? <Link url={data.website} text={data.company} /> : data.company}
 		<div class="text-zinc-500">{data.location}</div>
 	</div>

@@ -48,6 +48,14 @@ const WorkExperienceData = [
 		location: 'Bruges, Belgium',
 		role: 'Internship',
 	},
+	{
+		year_start: '2014',
+		year_end: '2014',
+		company: 'Open Summer of Code',
+		website: 'https://osoc.be/',
+		location: 'Ghent, Belgium',
+		role: 'Front-end Developer',
+	},
 ];
 
 const SpeakingData = [
@@ -78,6 +86,16 @@ const EducationData = [
 		title: 'Devine - Digital Design and Development',
 		subtitle: 'Howest, University of Applied Sciences, Kortrijk, Belgium',
 	},
+];
+
+const SideProjectsData = [
+	{
+		year_start: '2022',
+		year_end: 'Now',
+		title: 'Craft CMS Meetup Belgium',
+		subtitle: 'Organizer of the Craft CMS Meetup Belgium, a community-driven event for Craft CMS enthusiasts in Belgium.',
+		website: 'https://www.meetup.com/craft-cms-meetup-belgium',
+	}
 ];
 
 const SkillsData = [
@@ -140,6 +158,12 @@ const SkillsData = [
 			<Section title="Speaking">
 				<div class="space-y-6">
 					{SpeakingData.map(item => <Item data={item} />)}
+				</div>
+			</Section>
+
+			<Section title="Side Projects">
+				<div class="space-y-6">
+					{SideProjectsData.map(item => <Item data={item} />)}
 				</div>
 			</Section>
 
