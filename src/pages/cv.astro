@@ -118,6 +118,8 @@ const SkillsData = [
 ---
 
 <Layout>
+	<!-- Only this page: prevent indexing -->
+	<meta slot="head" name="robots" content="noindex, nofollow" />
 	<div class="px-8 py-28 max-w-[600px] box-content mx-auto min-h-dvh md:justify-center flex flex-col" slot="main">
 		<h1 class="font-display text-[4rem] leading-[0.85]">{profileData.data.title}</h1>
 		<div class="mt-8" set:html={profileData.data.bio}></div>
