@@ -3,7 +3,7 @@ import Project from "./Project.astro";
 
 const { className, data } = Astro.props;
 
-const initialAnimationDelay = 2.2; // seconds
+const initialAnimationDelay = 1.7; // seconds
 
 type Project = {
 	id: number;
@@ -14,7 +14,7 @@ type Project = {
 };
 ---
 <section class={`space-y-6 md:pt-20 pb-20 md:pb-0 ${className}`}>
-	<h2 class="text-xl motion-safe:opacity-0 motion-safe:animate-fade-in" style="animation-delay: 2s">Some fun projects I got to work on:</h2>
+	<h2 class="text-xl motion-safe:opacity-0 motion-safe:animate-fade-in" style="animation-delay: 1.6s">Some fun projects I got to work on:</h2>
 
 	<div class="grid gap-6">
 		{data.map((project: Project, index: number) => (
