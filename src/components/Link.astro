@@ -1,0 +1,13 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { url, text } = Astro.props;
+
+---
+<a href={url} target="_blank" rel="noopener noreferrer" class="inline items-center gap-1 group hover:text-white">
+	<span set:html={text} />
+
+	<span class="inline-block motion-safe:group-hover:animate-fly translate-y-[3px]">
+		<Icon name="material-symbols:arrow-outward" />
+	</span>
+</a>

@@ -1,0 +1,153 @@
+---
+import Item from '../components/cv/Item.astro';
+import Section from '../components/cv/Section.astro';
+import WorkExperience from '../components/cv/WorkExperience.astro';
+import Layout from '../layouts/Layout.astro';
+
+const API_BASE_URL = import.meta.env.API_BASE_URL;
+
+const FETCH_OPTIONS = {
+	method: 'GET',
+	headers: {
+		'Content-Type': 'application/json'
+	},
+};
+
+const [profileData] = await Promise.all([
+	fetch(`${API_BASE_URL}/profile`, FETCH_OPTIONS).then(res => res.ok ? res.json() : Promise.reject(res))
+]);
+
+const WorkExperienceData = [
+	{
+		year_start: '2021',
+		year_end: 'Now',
+		company: 'Little Miss Robot',
+		website: 'https://littlemissrobot.com',
+		location: 'Ghent, Belgium',
+		role: 'Full-stack Developer',
+	},
+	{
+		year_start: '2016',
+		year_end: '2021',
+		company: 'SKINN BRANDING AGENCY',
+		website: 'https://www.skinn.agency',
+		location: 'Bruges, Belgium',
+		role: 'Front-end Developer &amp; Technical Lead',
+	},
+	{
+		year_start: '2016',
+		year_end: '2016',
+		company: 'De Blauwe Peer',
+		location: 'Ghent, Belgium',
+		role: 'Internship',
+	},
+	{
+		year_start: '2015',
+		year_end: '2015',
+		company: 'd-artagnan',
+		location: 'Bruges, Belgium',
+		role: 'Internship',
+	},
+];
+
+const SpeakingData = [
+	{
+		year_start: '2024',
+		website: 'https://www.meetup.com/craft-cms-meetup-belgium/events/298859793',
+		title: 'Headless Craft CMS with Next.js on a large-scale project',
+		subtitle: 'Craft CMS Meetup Belgium #7',
+	},
+	{
+		year_start: '2022',
+		website: 'https://www.meetup.com/craft-cms-meetup-belgium/events/284243543',
+		title: 'User experience in the back-end',
+		subtitle: 'Craft CMS Meetup Belgium #3',
+	},
+];
+
+const EducationData = [
+	{
+		year_start: '2013',
+		year_end: '2016',
+		title: 'Bachelor in Multimedia and Communication Technology, Multimediaproductie',
+		subtitle: 'Arteveldehogeschool, Ghent, Belgium',
+	},
+	{
+		year_start: '2011',
+		year_end: '2012',
+		title: 'Devine - Digital Design and Development',
+		subtitle: 'Howest, University of Applied Sciences, Kortrijk, Belgium',
+	},
+];
+
+const SkillsData = [
+	'PHP',
+	'Craft CMS',
+	'Laravel',
+	'MySQL/MariaDB',
+	'Redis',
+	'JavaScript',
+	'TypeScript',
+	'Next.js',
+	'Astro',
+	'Vue.js',
+	'Tailwind CSS',
+	'Vite',
+	'(p)npm',
+	'Git',
+	'CI/CD',
+	'DevOps',
+	'nginx',
+	'Apache',
+	'Docker',
+	'Cloudflare',
+	'AWS',
+	'DigitalOcean',
+	'Laravel Forge',
+	'Google Cloud Platform',
+	'SEO',
+	'UX and UI Design',
+	'Performance Optimization',
+	'Accessibility (a11y)',
+	'Project Management',
+	'Technical Analysis',
+	'E-mail Marketing',
+	'...and more',
+];
+
+---
+
+<Layout>
+	<div class="px-8 py-28 max-w-[600px] box-content mx-auto min-h-dvh md:justify-center flex flex-col" slot="main">
+		<h1 class="font-display text-[4rem] leading-[0.85]">{profileData.data.title}</h1>
+		<div class="mt-8" set:html={profileData.data.bio}></div>
+
+		<div class="space-y-15 mt-15">
+			<Section title="Skills">
+				<div class="flex flex-wrap gap-x-4 gap-y-2 text-sm">
+					{SkillsData.map(skill => <span class="inline-block">{skill}</span>)}
+				</div>
+			</Section>
+
+			<Section title="Work Experience">
+				<div class="space-y-6">
+					{WorkExperienceData.map(item => <WorkExperience data={item} />)}
+				</div>
+			</Section>
+
+			<Section title="Speaking">
+				<div class="space-y-6">
+					{SpeakingData.map(item => <Item data={item} />)}
+				</div>
+			</Section>
+
+			<Section title="Education">
+				<div class="space-y-6">
+					{EducationData.map(item => <Item data={item} />)}
+				</div>
+			</Section>
+		</div>
+	</div>
+</Layout>
+
+

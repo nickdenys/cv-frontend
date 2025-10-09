@@ -19,9 +19,11 @@ const [profileData, projectsData] = await Promise.all([
 ---
 
 <Layout>
-	<div class="grid md:grid-cols-2 gap-20" slot="main">
-		<Profile data={profileData.data} />
-		<Projects className="shrink-0 grow-0" data={projectsData.data} />
+	<div class="p-8 pt-28 md:pt-8 max-w-5xl mx-auto min-h-dvh md:justify-center flex flex-col" slot="main">
+		<div class="grid md:grid-cols-2 gap-20">
+			<Profile data={profileData.data} />
+			<Projects className="shrink-0 grow-0" data={projectsData.data} />
+		</div>
 	</div>
 </Layout>
 

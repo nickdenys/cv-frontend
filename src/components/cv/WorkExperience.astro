@@ -1,0 +1,19 @@
+---
+import Link from '../Link.astro';
+
+const { data } = Astro.props;
+
+if (data === undefined) {
+	throw new Error('<Item> component requires a "data" prop. Example: <Item data={...} />');
+}
+---
+<div class="grid grid-cols-[120px_1fr] md:grid-cols-[150px_1fr] gap-4">
+	<div>
+		{data.year_start}{data.year_end && data.year_end !== data.year_start ? ` — ${data.year_end}` : ""}
+	</div>
+
+	<div class="text-pretty">
+		<span set:html={data.role} /> at {data.website ? <Link url={data.website} text={data.company} /> : data.company}
+		<div class="text-zinc-500">{data.location}</div>
+	</div>
+</div>

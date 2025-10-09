@@ -1,4 +1,4 @@
 @theme {
-	--color-charcoal: #10100e;
-	--color-ivory: #ffffe3;
+	--color-charcoal: oklch(0.1722 0.0041 106.82);
+	--color-ivory: oklch(0.9927 0.0364 107.04);
 }
